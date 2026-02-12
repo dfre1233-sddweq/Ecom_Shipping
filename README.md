@@ -13,7 +13,7 @@
 | **발표일** | 2026년 02월 13일 |
 | **데이터셋** | [E-Commerce Shipping Dataset (Kaggle)](https://www.kaggle.com/datasets/prachi13/customer-analytics/data) |
 | **목표** | 고객 주문의 **배송 지연 여부** 예측 (이진 분류) |
-| **최종 노트북** | `customer_analytics_modeling_ver_3_0.ipynb` |
+| **최종 노트북** | `customer_analytics_modeling_ver_4_0.ipynb` |
 
 ---
 
