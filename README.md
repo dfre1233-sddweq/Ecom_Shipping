@@ -22,7 +22,6 @@
 E-Commerce 환경에서 배송 지연은 고객 만족도와 재구매율에 직접적인 영향을 미칩니다. 본 프로젝트는 주어진 주문 및 배송 관련 데이터를 분석하여 **배송 지연 가능성을 사전에 예측**하는 머신러닝 모델을 구축합니다.
 
 - 다양한 머신러닝 알고리즘을 비교·평가하여 최적의 예측 모델을 선정
-- **SHAP** 분석을 통해 모델의 예측 근거를 해석
 - 배송 지연에 영향을 미치는 **핵심 요인**을 도출
 
 ---
@@ -70,7 +69,7 @@ E-Commerce 환경에서 배송 지연은 고객 만족도와 재구매율에 직
     ↓
 🎯 Optuna 하이퍼파라미터 튜닝 — 상위 3개 모델 최적화
     ↓
-📈 모델 평가 — Confusion Matrix, ROC, PR Curve, 특성 중요도, SHAP
+📈 모델 평가 — Confusion Matrix, ROC, PR Curve, 특성 중요도
     ↓
 💾 모델 저장 — best_model.pkl, scaler.pkl
 ```
@@ -88,7 +87,7 @@ E-Commerce 환경에서 배송 지연은 고객 만족도와 재구매율에 직
 | - | 데이터 분할 & 스케일링 | Train/Test 분할, StandardScaler 적용 |
 | 6 | 베이스라인 모델 비교 | 8개 알고리즘 성능 비교 |
 | 7 | Optuna 하이퍼파라미터 튜닝 | 상위 3개 모델 최적화 |
-| 8 | 모델 평가 | Confusion Matrix, ROC, PR Curve, 특성 중요도, SHAP |
+| 8 | 모델 평가 | Confusion Matrix, ROC, PR Curve, 특성 중요도 |
 | 9 | 전체 결과 요약 | 베이스라인 + 튜닝 통합 비교 |
 | 10 | 모델 저장 | best_model.pkl, scaler.pkl |
 | 11 | 결론 | 주요 발견사항 · 한계점 · 향후 개선 방향 |
@@ -99,7 +98,7 @@ E-Commerce 환경에서 배송 지연은 고객 만족도와 재구매율에 직
 
 ### 1. 배송 지연의 핵심 요인: 할인율과 상품 무게
 
-EDA부터 SHAP 분석까지 일관되게, **`Discount_offered`(할인율)** 과 **`Weight_in_gms`(상품 무게)** 가 배송 지연을 결정짓는 가장 중요한 변수로 확인되었습니다.
+EDA부터 모델 분석까지 일관되게, **`Discount_offered`(할인율)** 과 **`Weight_in_gms`(상품 무게)** 가 배송 지연을 결정짓는 가장 중요한 변수로 확인되었습니다.
 
 | 발견 | 근거 |
 |------|------|
@@ -139,9 +138,6 @@ EDA부터 SHAP 분석까지 일관되게, **`Discount_offered`(할인율)** 과 
 
 ### 하이퍼파라미터 튜닝
 - `Optuna` — 베이지안 기반 하이퍼파라미터 최적화 (50 trials × 3 모델)
-
-### 모델 해석
-- `SHAP` — SHapley Additive exPlanations
 
 ### 모델 저장
 - `joblib` — 모델 직렬화
@@ -204,7 +200,7 @@ git clone https://github.com/dfre1233-sddweq/Ecom_Shipping.git
 cd Ecom_Shipping
 
 # 필수 라이브러리 설치
-pip install numpy pandas matplotlib seaborn plotly scikit-learn xgboost lightgbm catboost optuna shap joblib
+pip install numpy pandas matplotlib seaborn plotly scikit-learn xgboost lightgbm catboost optuna joblib
 ```
 
 ### 2. 데이터 준비
